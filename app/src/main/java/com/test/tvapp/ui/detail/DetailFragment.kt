@@ -19,6 +19,9 @@ import com.test.tvapp.repository.model.Video
 import com.test.tvapp.ui.detail.DetailActivity.Companion.KEY_VIDEO
 import com.test.tvapp.ui.detail.DetailActivity.Companion.SHARED_ELEMENT_NAME
 import android.support.v17.leanback.widget.SparseArrayObjectAdapter
+import android.support.v17.leanback.widget.DetailsOverviewRow
+import android.support.v17.leanback.widget.FullWidthDetailsOverviewRowPresenter
+import com.test.tvapp.presenter.DetailOverviewLogoPresenter
 
 class DetailFragment: DetailsFragment() {
 
@@ -59,7 +62,7 @@ class DetailFragment: DetailsFragment() {
         val helper = FullWidthDetailsOverviewSharedElementHelper()
         helper.setSharedElementEnterTransition(activity, SHARED_ELEMENT_NAME)
 
-        val rowPresenter = FullWidthDetailsOverviewRowPresenter(DetailsDescriptionPresenter())
+        val rowPresenter = FullWidthDetailsOverviewRowPresenter(DetailsDescriptionPresenter(), DetailOverviewLogoPresenter())
         rowPresenter.backgroundColor = ContextCompat.getColor(activity, R.color.selected_background)
         rowPresenter.initialState = FullWidthDetailsOverviewRowPresenter.STATE_HALF
         rowPresenter.isParticipatingEntranceTransition = false
