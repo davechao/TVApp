@@ -22,7 +22,6 @@ import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.transition.Transition
 
-
 class MainFragment: BrowseFragment(){
 
     private lateinit var backgroundManager: BackgroundManager
@@ -68,20 +67,16 @@ class MainFragment: BrowseFragment(){
     }
 
     private fun setupData() {
-        val cardPresenter = CardPresenter()
-        val cardAdapter = ArrayObjectAdapter(cardPresenter)
-
+        val cardAdapter = ArrayObjectAdapter(CardPresenter())
         val videoRepository = VideoRepository()
         val videoList = videoRepository.getVideoList()
         videoList.forEach {
             cardAdapter.add(it)
         }
 
-        val listRowPresenter = ListRowPresenter()
-        var listRowAdapter = ArrayObjectAdapter(listRowPresenter)
+        var listRowAdapter = ArrayObjectAdapter(ListRowPresenter())
         val headerItem = HeaderItem(1, "Card Presenter")
-        val listRow = ListRow(headerItem, cardAdapter)
-        listRowAdapter.add(listRow)
+        listRowAdapter.add(ListRow(headerItem, cardAdapter))
         adapter = listRowAdapter
     }
 

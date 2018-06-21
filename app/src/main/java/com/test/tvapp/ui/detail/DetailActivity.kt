@@ -8,10 +8,12 @@ class DetailActivity: Activity() {
 
     companion object {
         val KEY_VIDEO = "VIDEO"
+        val SHARED_ELEMENT_NAME = "hero"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
+
     }
 }
