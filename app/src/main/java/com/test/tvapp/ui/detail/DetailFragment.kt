@@ -22,6 +22,10 @@ import android.support.v17.leanback.widget.SparseArrayObjectAdapter
 import android.support.v17.leanback.widget.DetailsOverviewRow
 import android.support.v17.leanback.widget.FullWidthDetailsOverviewRowPresenter
 import com.test.tvapp.presenter.DetailOverviewLogoPresenter
+import android.support.v17.leanback.widget.ListRow
+import android.support.v17.leanback.widget.ArrayObjectAdapter
+import android.support.v17.leanback.widget.ListRowPresenter
+import android.support.v17.leanback.widget.ClassPresenterSelector
 
 class DetailFragment: DetailsFragment() {
 
