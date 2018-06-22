@@ -101,11 +101,10 @@ class MainFragment: BrowseFragment(){
     }
 
     private inner class ItemViewClickedListener: OnItemViewClickedListener {
-        override fun onItemClicked(
-                itemViewHolder: Presenter.ViewHolder,
-                item: Any,
-                rowViewHolder: RowPresenter.ViewHolder,
-                row: Row) {
+        override fun onItemClicked(itemViewHolder: Presenter.ViewHolder?,
+                                   item: Any?,
+                                   rowViewHolder: RowPresenter.ViewHolder?,
+                                   row: Row?) {
             if(item is Video) {
                 val intent = Intent(activity, DetailActivity::class.java)
                 intent.putExtra(DetailActivity.KEY_VIDEO, item)
@@ -135,8 +134,8 @@ class MainFragment: BrowseFragment(){
         override fun onItemSelected(
                 itemViewHolder: Presenter.ViewHolder?,
                 item: Any?,
-                rowViewHolder: RowPresenter.ViewHolder,
-                row: Row) {
+                rowViewHolder: RowPresenter.ViewHolder?,
+                row: Row?) {
             if(item is Video) {
                 val backgroundImageUrl = Uri.parse(item.backgroundImageUrl)
                 updateBackground(backgroundImageUrl.toString())
