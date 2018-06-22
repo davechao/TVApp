@@ -14,13 +14,14 @@ import com.bumptech.glide.Glide
 import com.test.tvapp.repository.model.Video
 import com.test.tvapp.repository.VideoRepository
 import com.test.tvapp.R
-import com.test.tvapp.presenter.CardPresenter
 import com.test.tvapp.presenter.IconHeaderItemPresenter
 import com.test.tvapp.ui.detail.DetailActivity
 import android.graphics.Bitmap
 import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.transition.Transition
+import com.test.tvapp.presenter.CardItemPresenter
+import com.test.tvapp.presenter.GridItemPresenter
 
 class MainFragment: BrowseFragment(){
 
@@ -67,16 +68,34 @@ class MainFragment: BrowseFragment(){
     }
 
     private fun setupData() {
-        val cardAdapter = ArrayObjectAdapter(CardPresenter())
+
+        val listRowAdapter = ArrayObjectAdapter(ListRowPresenter())
+
         val videoRepository = VideoRepository()
-        val videoList = videoRepository.getVideoList()
-        videoList.forEach {
-            cardAdapter.add(it)
+        val videoCategorys = videoRepository.videoCategory
+        val videoMap = videoRepository.getVideoMap()
+
+        videoCategorys.forEachIndexed { index, it ->
+            val categoryHeader = HeaderItem(index.toLong(), it)
+
+            val videoList = videoMap[it]
+            videoList?.shuffle()
+
+            var cardRowAdapter = ArrayObjectAdapter(CardItemPresenter())
+            videoList?.forEach {
+                cardRowAdapter.add(it)
+            }
+
+            listRowAdapter.add(ListRow(categoryHeader, cardRowAdapter))
         }
 
-        var listRowAdapter = ArrayObjectAdapter(ListRowPresenter())
-        val headerItem = HeaderItem(1, "Card Presenter")
-        listRowAdapter.add(ListRow(headerItem, cardAdapter))
+        val prefHeader = HeaderItem(videoMap.size.toLong(), "PREFERENCES")
+        var prefRowAdapter = ArrayObjectAdapter(GridItemPresenter())
+        prefRowAdapter.add(getString(R.string.grid_view))
+        prefRowAdapter.add(getString(R.string.error_fragment))
+        prefRowAdapter.add(getString(R.string.personal_settings))
+        listRowAdapter.add(ListRow(prefHeader, prefRowAdapter))
+
         adapter = listRowAdapter
     }
 

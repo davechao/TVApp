@@ -12,7 +12,7 @@ import com.test.tvapp.R
 import com.test.tvapp.repository.model.Video
 import kotlin.properties.Delegates
 
-class CardPresenter: Presenter() {
+class CardItemPresenter: Presenter() {
 
     companion object {
         private val CARD_WIDTH = 313

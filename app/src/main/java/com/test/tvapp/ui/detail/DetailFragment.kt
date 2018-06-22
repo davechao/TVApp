@@ -22,9 +22,7 @@ import android.support.v17.leanback.widget.SparseArrayObjectAdapter
 import android.support.v17.leanback.widget.DetailsOverviewRow
 import android.support.v17.leanback.widget.FullWidthDetailsOverviewRowPresenter
 import com.test.tvapp.presenter.DetailOverviewLogoPresenter
-import android.support.v17.leanback.widget.ListRow
 import android.support.v17.leanback.widget.ArrayObjectAdapter
-import android.support.v17.leanback.widget.ListRowPresenter
 import android.support.v17.leanback.widget.ClassPresenterSelector
 
 class DetailFragment: DetailsFragment() {
@@ -66,13 +64,13 @@ class DetailFragment: DetailsFragment() {
         val helper = FullWidthDetailsOverviewSharedElementHelper()
         helper.setSharedElementEnterTransition(activity, SHARED_ELEMENT_NAME)
 
-        val rowPresenter = FullWidthDetailsOverviewRowPresenter(DetailsDescriptionPresenter(), DetailOverviewLogoPresenter())
-        rowPresenter.backgroundColor = ContextCompat.getColor(activity, R.color.selected_background)
-        rowPresenter.initialState = FullWidthDetailsOverviewRowPresenter.STATE_HALF
-        rowPresenter.isParticipatingEntranceTransition = false
+        val detailsRowPresenter = FullWidthDetailsOverviewRowPresenter(DetailsDescriptionPresenter(), DetailOverviewLogoPresenter())
+        detailsRowPresenter.backgroundColor = ContextCompat.getColor(activity, R.color.selected_background)
+        detailsRowPresenter.initialState = FullWidthDetailsOverviewRowPresenter.STATE_HALF
+        detailsRowPresenter.isParticipatingEntranceTransition = false
         prepareEntranceTransition()
-        rowPresenter.setListener(helper)
-        rowPresenter.setOnActionClickedListener {
+        detailsRowPresenter.setListener(helper)
+        detailsRowPresenter.setOnActionClickedListener {
             if (it.id.toInt() == ACTION_WATCH_TRAILER) {
 
             } else {
@@ -81,8 +79,7 @@ class DetailFragment: DetailsFragment() {
         }
 
         val presenterSelector = ClassPresenterSelector()
-        presenterSelector.addClassPresenter(DetailsOverviewRow::class.java, rowPresenter)
-        presenterSelector.addClassPresenter(ListRow::class.java, ListRowPresenter())
+        presenterSelector.addClassPresenter(DetailsOverviewRow::class.java, detailsRowPresenter)
         mAdapter = ArrayObjectAdapter(presenterSelector)
         adapter = mAdapter
     }

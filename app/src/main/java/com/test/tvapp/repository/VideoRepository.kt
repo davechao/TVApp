@@ -1,11 +1,19 @@
 package com.test.tvapp.repository
 
 import com.test.tvapp.repository.model.Video
+import java.util.*
 
 class VideoRepository {
 
-    fun getVideoList(): List<Video> {
-        val videoList = arrayListOf<Video>()
+    val videoCategory = arrayOf(
+            "Category Zero",
+            "Category One",
+            "Category Two",
+            "Category Three",
+            "Category Four",
+            "Category Five")
+
+    fun getVideoMap(): HashMap<String, ArrayList<Video>> {
 
         val video1 = Video(
                 id = 0,
@@ -57,12 +65,19 @@ class VideoRepository {
                 cardImageUrl = "http://commondatastorage.googleapis.com/android-tv/Sample%20videos/April%20Fool's%202013/Introducing%20Google%20Nose/card.jpg"
         )
 
+        val videoList = arrayListOf<Video>()
         videoList.add(video1)
         videoList.add(video2)
         videoList.add(video3)
         videoList.add(video4)
         videoList.add(video5)
-        return videoList
+
+        val videoMap = hashMapOf<String, ArrayList<Video>>()
+        videoCategory.forEach {
+            videoMap[it] = videoList
+        }
+
+        return videoMap
     }
 
 }
