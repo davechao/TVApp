@@ -21,6 +21,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.transition.Transition
 import com.test.tvapp.presenter.CardItemPresenter
 import com.test.tvapp.presenter.GridItemPresenter
+import com.test.tvapp.ui.error.ErrorActivity
 
 class MainFragment: BrowseFragment(){
 
@@ -108,6 +109,14 @@ class MainFragment: BrowseFragment(){
                 val intent = Intent(activity, DetailActivity::class.java)
                 intent.putExtra(DetailActivity.KEY_VIDEO, item)
                 startActivity(intent)
+            } else if(item is String) {
+                if (getString(R.string.error_fragment).equals(item)) {
+                    val intent = Intent(activity, ErrorActivity::class.java)
+                    intent.putExtra(DetailActivity.KEY_VIDEO, item)
+                    startActivity(intent)
+                } else {
+                    Toast.makeText(activity, item, Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
