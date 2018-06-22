@@ -52,11 +52,11 @@ class MainFragment: BrowseFragment(){
         isHeadersTransitionOnBackEnabled = true
         brandColor = ContextCompat.getColor(activity, R.color.fastlane_background)
         searchAffordanceColor = ContextCompat.getColor(activity, R.color.search_opaque)
-        setHeaderPresenterSelector(object: PresenterSelector(){
-            override fun getPresenter(item: Any?): Presenter {
-                return IconHeaderItemPresenter()
-            }
-        })
+//        setHeaderPresenterSelector(object: PresenterSelector(){
+//            override fun getPresenter(item: Any?): Presenter {
+//                return IconHeaderItemPresenter()
+//            }
+//        })
     }
 
     private fun setupListener() {

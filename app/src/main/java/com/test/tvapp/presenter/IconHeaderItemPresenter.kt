@@ -33,7 +33,6 @@ class IconHeaderItemPresenter: RowHeaderPresenter() {
         val rootView = viewHolder.view
         val iconView = rootView.findViewById<ImageView>(R.id.header_icon)
         val label = rootView.findViewById<TextView>(R.id.header_label)
-
         rootView.isFocusable = true
 
         val icon = rootView.resources.getDrawable(R.drawable.android_header, null)
