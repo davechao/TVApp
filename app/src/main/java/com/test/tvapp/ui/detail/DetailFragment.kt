@@ -1,5 +1,6 @@
 package com.test.tvapp.ui.detail
 
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
 import android.os.Bundle
@@ -16,7 +17,6 @@ import com.bumptech.glide.request.transition.Transition
 import com.test.tvapp.R
 import com.test.tvapp.presenter.DetailsDescriptionPresenter
 import com.test.tvapp.repository.model.Video
-import com.test.tvapp.ui.detail.DetailActivity.Companion.KEY_VIDEO
 import com.test.tvapp.ui.detail.DetailActivity.Companion.SHARED_ELEMENT_NAME
 import android.support.v17.leanback.widget.SparseArrayObjectAdapter
 import android.support.v17.leanback.widget.DetailsOverviewRow
@@ -24,6 +24,8 @@ import android.support.v17.leanback.widget.FullWidthDetailsOverviewRowPresenter
 import com.test.tvapp.presenter.DetailOverviewLogoPresenter
 import android.support.v17.leanback.widget.ArrayObjectAdapter
 import android.support.v17.leanback.widget.ClassPresenterSelector
+import com.test.tvapp.ui.playback.PlaybackActivity
+import com.test.tvapp.ui.playback.PlaybackActivity.Companion.KEY_VIDEO
 
 class DetailFragment: DetailsFragment() {
 
@@ -72,7 +74,9 @@ class DetailFragment: DetailsFragment() {
         detailsRowPresenter.setListener(helper)
         detailsRowPresenter.setOnActionClickedListener {
             if (it.id.toInt() == ACTION_WATCH_TRAILER) {
-
+                val intent = Intent(activity, PlaybackActivity::class.java)
+                intent.putExtra(KEY_VIDEO, video)
+                startActivity(intent)
             } else {
                 Toast.makeText(activity, it.toString(), Toast.LENGTH_SHORT).show()
             }

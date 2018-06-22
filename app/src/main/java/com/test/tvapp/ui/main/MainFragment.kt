@@ -14,7 +14,6 @@ import com.bumptech.glide.Glide
 import com.test.tvapp.repository.model.Video
 import com.test.tvapp.repository.VideoRepository
 import com.test.tvapp.R
-import com.test.tvapp.presenter.IconHeaderItemPresenter
 import com.test.tvapp.ui.detail.DetailActivity
 import android.graphics.Bitmap
 import com.bumptech.glide.request.target.SimpleTarget

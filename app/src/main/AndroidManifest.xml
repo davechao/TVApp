@@ -33,9 +33,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.detail.DetailActivity"
-            android:exported="true"
-            android:theme="@style/Theme.Leanback" />
+        <activity android:name=".ui.detail.DetailActivity" />
+        <activity android:name=".ui.playback.PlaybackActivity" />
 
     </application>
 
