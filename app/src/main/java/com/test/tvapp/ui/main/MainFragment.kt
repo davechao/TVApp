@@ -22,6 +22,7 @@ import com.bumptech.glide.request.transition.Transition
 import com.test.tvapp.presenter.CardItemPresenter
 import com.test.tvapp.presenter.GridItemPresenter
 import com.test.tvapp.ui.error.ErrorActivity
+import com.test.tvapp.ui.grid.VerticalGridActivity
 
 class MainFragment: BrowseFragment(){
 
@@ -110,20 +111,32 @@ class MainFragment: BrowseFragment(){
                 intent.putExtra(DetailActivity.KEY_VIDEO, item)
                 startActivity(intent)
             } else if(item is String) {
-                if (getString(R.string.error_fragment).equals(item)) {
-                    val intent = Intent(activity, ErrorActivity::class.java)
-                    intent.putExtra(DetailActivity.KEY_VIDEO, item)
-                    startActivity(intent)
-                } else {
-                    Toast.makeText(activity, item, Toast.LENGTH_SHORT).show()
+                when(item) {
+                    getString(R.string.grid_view) -> {
+                        val intent = Intent(activity, VerticalGridActivity::class.java)
+                        startActivity(intent)
+                    }
+
+                    getString(R.string.error_fragment) -> {
+                        val intent = Intent(activity, ErrorActivity::class.java)
+                        intent.putExtra(DetailActivity.KEY_VIDEO, item)
+                        startActivity(intent)
+                    }
+
+                    else -> {
+                        Toast.makeText(activity, item, Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
         }
     }
 
     private inner class ItemViewSelectedListener : OnItemViewSelectedListener {
-        override fun onItemSelected(itemViewHolder: Presenter.ViewHolder?, item: Any?,
-                                    rowViewHolder: RowPresenter.ViewHolder, row: Row) {
+        override fun onItemSelected(
+                itemViewHolder: Presenter.ViewHolder?,
+                item: Any?,
+                rowViewHolder: RowPresenter.ViewHolder,
+                row: Row) {
             if(item is Video) {
                 val backgroundImageUrl = Uri.parse(item.backgroundImageUrl)
                 updateBackground(backgroundImageUrl.toString())

@@ -36,6 +36,7 @@
         <activity android:name=".ui.detail.DetailActivity" />
         <activity android:name=".ui.playback.PlaybackActivity" />
         <activity android:name=".ui.error.ErrorActivity" />
+        <activity android:name=".ui.grid.VerticalGridActivity" />
 
     </application>
 
