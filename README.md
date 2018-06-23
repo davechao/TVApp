@@ -11,7 +11,7 @@ This is a Android TV Leanback Support Library sample app
 + SearchFragment
 + ErrorFragment
 
-### Layout
+### Presenter
 + CardItemPresenter
 + GridItemPresenter
 + RowHeaderPresenter
