@@ -5,12 +5,12 @@ import android.os.Bundle
 import android.support.v17.leanback.app.VerticalGridFragment
 import android.support.v17.leanback.widget.*
 import android.support.v4.content.ContextCompat
-import android.widget.Toast
 import com.test.tvapp.R
 import com.test.tvapp.presenter.CardItemPresenter
 import com.test.tvapp.repository.VideoRepository
 import com.test.tvapp.repository.model.Video
 import com.test.tvapp.ui.detail.DetailActivity
+import com.test.tvapp.ui.search.SearchActivity
 
 class VerticalGridsFragment: VerticalGridFragment() {
 
@@ -39,7 +39,8 @@ class VerticalGridsFragment: VerticalGridFragment() {
 
     private fun setupListener() {
         setOnSearchClickedListener {
-            Toast.makeText(activity, "Implement your own in-app search", Toast.LENGTH_SHORT).show()
+            val intent = Intent(activity, SearchActivity::class.java)
+            startActivity(intent)
         }
         onItemViewClickedListener = ItemViewClickedListener()
         setOnItemViewSelectedListener(ItemViewSelectedListener())

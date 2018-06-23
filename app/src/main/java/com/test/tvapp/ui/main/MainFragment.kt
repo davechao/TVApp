@@ -23,6 +23,7 @@ import com.test.tvapp.presenter.CardItemPresenter
 import com.test.tvapp.presenter.GridItemPresenter
 import com.test.tvapp.ui.error.ErrorActivity
 import com.test.tvapp.ui.grid.VerticalGridActivity
+import com.test.tvapp.ui.search.SearchActivity
 
 class MainFragment: BrowseFragment(){
 
@@ -62,7 +63,8 @@ class MainFragment: BrowseFragment(){
 
     private fun setupListener() {
         setOnSearchClickedListener {
-            Toast.makeText(activity, "Implement your own in-app search", Toast.LENGTH_SHORT).show()
+            val intent = Intent(activity, SearchActivity::class.java)
+            startActivity(intent)
         }
         onItemViewClickedListener = ItemViewClickedListener()
         onItemViewSelectedListener = ItemViewSelectedListener()

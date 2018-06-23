@@ -2,6 +2,7 @@ package com.test.tvapp.repository
 
 import com.test.tvapp.repository.model.Video
 import java.util.*
+import kotlin.collections.ArrayList
 
 class VideoRepository {
 
@@ -13,7 +14,7 @@ class VideoRepository {
             "Category Four",
             "Category Five")
 
-    fun getVideoMap(): HashMap<String, ArrayList<Video>> {
+    fun getVideoList(): ArrayList<Video> {
 
         val video1 = Video(
                 id = 0,
@@ -72,6 +73,11 @@ class VideoRepository {
         videoList.add(video4)
         videoList.add(video5)
 
+        return videoList
+    }
+
+    fun getVideoMap(): HashMap<String, ArrayList<Video>> {
+        val videoList = getVideoList()
         val videoMap = hashMapOf<String, ArrayList<Video>>()
         videoCategory.forEach {
             videoMap[it] = videoList
@@ -79,5 +85,4 @@ class VideoRepository {
 
         return videoMap
     }
-
 }

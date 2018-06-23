@@ -5,6 +5,7 @@
     package="com.test.tvapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <uses-feature
         android:name="android.software.leanback"
@@ -35,8 +36,9 @@
 
         <activity android:name=".ui.detail.DetailActivity" />
         <activity android:name=".ui.playback.PlaybackActivity" />
-        <activity android:name=".ui.error.ErrorActivity" />
         <activity android:name=".ui.grid.VerticalGridActivity" />
+        <activity android:name=".ui.error.ErrorActivity" />
+        <activity android:name=".ui.search.SearchActivity" />
 
     </application>
 
