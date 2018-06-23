@@ -21,6 +21,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.transition.Transition
 import com.test.tvapp.presenter.CardItemPresenter
 import com.test.tvapp.presenter.GridItemPresenter
+import com.test.tvapp.presenter.IconHeaderItemPresenter
 import com.test.tvapp.ui.error.ErrorActivity
 import com.test.tvapp.ui.grid.VerticalGridActivity
 import com.test.tvapp.ui.search.SearchActivity

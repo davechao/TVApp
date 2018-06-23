@@ -19,4 +19,6 @@
 
     <string name="header_icon">Header icon</string>
 
+    <string name="search_result">Search results for \&#034;%s\&#034;</string>
+
 </resources>

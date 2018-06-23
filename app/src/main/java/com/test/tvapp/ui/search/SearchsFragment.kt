@@ -94,16 +94,14 @@ class SearchsFragment: SearchFragment(), SearchFragment.SearchResultProvider {
     private fun loadQuery(query: String?) {
         listRowAdapter.clear();
         if (!TextUtils.isEmpty(query)) {
-            val header = HeaderItem(0, query)
+            val header = HeaderItem(0, getString(R.string.search_result, query))
             var cardRowAdapter = ArrayObjectAdapter(CardItemPresenter())
             videoList.forEach {
                 if(it.title?.toLowerCase()!!.contains(query.toString().toLowerCase())) {
                     cardRowAdapter.add(it)
                 }
             }
-            if(cardRowAdapter.size() > 0) {
-                listRowAdapter.add(ListRow(header, cardRowAdapter))
-            }
+            listRowAdapter.add(ListRow(header, cardRowAdapter))
         }
     }
 
