@@ -26,6 +26,12 @@ import android.support.v17.leanback.widget.ArrayObjectAdapter
 import android.support.v17.leanback.widget.ClassPresenterSelector
 import com.test.tvapp.ui.playback.PlaybackActivity
 import com.test.tvapp.ui.playback.PlaybackActivity.Companion.KEY_VIDEO
+import android.support.v17.leanback.widget.ListRow
+import android.support.v17.leanback.widget.HeaderItem
+import com.test.tvapp.presenter.CardItemPresenter
+import com.test.tvapp.repository.VideoRepository
+import android.support.v17.leanback.widget.ListRowPresenter
+
 
 class DetailFragment: DetailsFragment() {
 
@@ -47,6 +53,7 @@ class DetailFragment: DetailsFragment() {
         prepareBackgroundManager()
         setupData()
         setupView()
+        setupListener()
     }
 
     private fun prepareBackgroundManager() {
@@ -60,6 +67,11 @@ class DetailFragment: DetailsFragment() {
     private fun setupView() {
         setupAdapter()
         setupDetailsOverviewRow()
+        setupVideoListRow()
+    }
+
+    private fun setupListener() {
+        onItemViewClickedListener = ItemViewClickedListener()
     }
 
     private fun setupAdapter() {
@@ -84,6 +96,7 @@ class DetailFragment: DetailsFragment() {
 
         val presenterSelector = ClassPresenterSelector()
         presenterSelector.addClassPresenter(DetailsOverviewRow::class.java, detailsRowPresenter)
+        presenterSelector.addClassPresenter(ListRow::class.java, ListRowPresenter())
         mAdapter = ArrayObjectAdapter(presenterSelector)
         adapter = mAdapter
     }
@@ -125,6 +138,19 @@ class DetailFragment: DetailsFragment() {
         mAdapter.add(detailsOverviewRow)
     }
 
+    private fun setupVideoListRow() {
+        val videoRepository = VideoRepository()
+        val videoList = videoRepository.getVideoList()
+        val header = HeaderItem(0, getString(R.string.related_videos))
+        var cardRowAdapter = ArrayObjectAdapter(CardItemPresenter())
+        videoList.forEach {
+            if(!it.title.equals(video.title)) {
+                cardRowAdapter.add(it)
+            }
+        }
+        mAdapter.add(ListRow(header, cardRowAdapter))
+    }
+
     private fun setupData() {
         video = activity.intent.getParcelableExtra<Video>(KEY_VIDEO)
         updateBackground(video.backgroundImageUrl.toString())
@@ -149,6 +175,19 @@ class DetailFragment: DetailsFragment() {
                         backgroundManager.setBitmap(resource)
                     }
                 })
+    }
+
+    private inner class ItemViewClickedListener: OnItemViewClickedListener {
+        override fun onItemClicked(itemViewHolder: Presenter.ViewHolder?,
+                                   item: Any?,
+                                   rowViewHolder: RowPresenter.ViewHolder?,
+                                   row: Row?) {
+            if(item is Video) {
+                val intent = Intent(activity, DetailActivity::class.java)
+                intent.putExtra(DetailActivity.KEY_VIDEO, item)
+                startActivity(intent)
+            }
+        }
     }
 
 }

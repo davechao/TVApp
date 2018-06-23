@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">TvApp</string>
     <string name="browse_title">Android TV</string>
-    <string name="related_movies">Related Videos</string>
+    <string name="related_videos">Related Videos</string>
     <string name="grid_view">Grid View</string>
     <string name="error_fragment">Error Fragment</string>
     <string name="personal_settings">Personal Settings</string>
