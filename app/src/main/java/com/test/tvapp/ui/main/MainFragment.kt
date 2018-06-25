@@ -23,6 +23,7 @@ import com.test.tvapp.presenter.CardItemPresenter
 import com.test.tvapp.presenter.GridItemPresenter
 import com.test.tvapp.presenter.IconHeaderItemPresenter
 import com.test.tvapp.ui.error.ErrorActivity
+import com.test.tvapp.ui.exoplayer.ExoPlayerActivity
 import com.test.tvapp.ui.grid.VerticalGridActivity
 import com.test.tvapp.ui.search.SearchActivity
 
@@ -98,6 +99,7 @@ class MainFragment: BrowseFragment(){
         prefRowAdapter.add(getString(R.string.grid_view))
         prefRowAdapter.add(getString(R.string.error_fragment))
         prefRowAdapter.add(getString(R.string.personal_settings))
+        prefRowAdapter.add(getString(R.string.exoplayer))
         listRowAdapter.add(ListRow(prefHeader, prefRowAdapter))
 
         adapter = listRowAdapter
@@ -122,6 +124,11 @@ class MainFragment: BrowseFragment(){
                     getString(R.string.error_fragment) -> {
                         val intent = Intent(activity, ErrorActivity::class.java)
                         intent.putExtra(DetailActivity.KEY_VIDEO, item)
+                        startActivity(intent)
+                    }
+
+                    getString(R.string.exoplayer) -> {
+                        val intent = Intent(activity, ExoPlayerActivity::class.java)
                         startActivity(intent)
                     }
 

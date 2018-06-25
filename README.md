@@ -17,3 +17,7 @@ This is a Android TV Leanback Support Library sample app
 + RowHeaderPresenter
 + DetailsOverviewLogoPresenter
 + AbstractDetailsDescriptionPresenter
+
+### Play Video
++ ExoPlayer2
++ Playback
