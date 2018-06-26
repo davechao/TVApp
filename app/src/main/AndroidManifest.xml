@@ -42,6 +42,9 @@
         <activity android:name=".ui.error.ErrorActivity" />
         <activity android:name=".ui.search.SearchActivity" />
         <activity android:name=".ui.exoplayer.ExoPlayerActivity" />
+        <activity
+            android:name=".ui.onboarding.OnboardingActivity"
+            android:theme="@style/Theme.Leanback.Onboarding" />
 
     </application>
 

@@ -22,4 +22,14 @@
 
     <string name="search_result">Search results for \&#034;%s\&#034;</string>
 
+    <string name="onboarding_title_welcome">Welcome to the Leanback Sample</string>
+    <string name="onboarding_title_design">Designed for Android TV</string>
+    <string name="onboarding_title_simple">Simple to include</string>
+    <string name="onboarding_title_project">Check out the Sample Project</string>
+
+    <string name="onboarding_description_welcome">This is the Onboarding Fragment, which runs when the user first opens the app</string>
+    <string name="onboarding_description_design">The Leanback sample shows how to quickly design apps designed for a 10-foot user interface</string>
+    <string name="onboarding_description_simple">You can include the Leanback library through gradle in your own apps</string>
+    <string name="onboarding_description_project">Are you looking for guidance? This sample is available on GitHub so you can see how we built this.</string>
+
 </resources>
