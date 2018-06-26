@@ -25,6 +25,7 @@ import com.test.tvapp.presenter.IconHeaderItemPresenter
 import com.test.tvapp.ui.error.ErrorActivity
 import com.test.tvapp.ui.exoplayer.ExoPlayerActivity
 import com.test.tvapp.ui.grid.VerticalGridActivity
+import com.test.tvapp.ui.guidedstep.GuidedStepActivity
 import com.test.tvapp.ui.search.SearchActivity
 
 class MainFragment: BrowseFragment(){
@@ -98,6 +99,7 @@ class MainFragment: BrowseFragment(){
         var prefRowAdapter = ArrayObjectAdapter(GridItemPresenter())
         prefRowAdapter.add(getString(R.string.grid_view))
         prefRowAdapter.add(getString(R.string.error_fragment))
+        prefRowAdapter.add(getString(R.string.guidedstep_fragment))
         prefRowAdapter.add(getString(R.string.personal_settings))
         prefRowAdapter.add(getString(R.string.exoplayer))
         listRowAdapter.add(ListRow(prefHeader, prefRowAdapter))
@@ -124,6 +126,11 @@ class MainFragment: BrowseFragment(){
                     getString(R.string.error_fragment) -> {
                         val intent = Intent(activity, ErrorActivity::class.java)
                         intent.putExtra(DetailActivity.KEY_VIDEO, item)
+                        startActivity(intent)
+                    }
+
+                    getString(R.string.guidedstep_fragment) -> {
+                        val intent = Intent(activity, GuidedStepActivity::class.java)
                         startActivity(intent)
                     }
 

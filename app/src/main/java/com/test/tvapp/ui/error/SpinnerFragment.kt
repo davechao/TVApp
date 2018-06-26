@@ -12,8 +12,8 @@ import android.widget.ProgressBar
 class SpinnerFragment: Fragment() {
 
     companion object {
-        private val SPINNER_WIDTH = 100
-        private val SPINNER_HEIGHT = 100
+        private const val SPINNER_WIDTH = 100
+        private const val SPINNER_HEIGHT = 100
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,

@@ -10,6 +10,7 @@ This is a Android TV Leanback Support Library sample app
 + VideoSupportFragment
 + SearchFragment
 + OnboardingFragment
++ GuidedStepFragment
 + ErrorFragment
 
 ### Presenter

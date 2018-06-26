@@ -20,8 +20,8 @@ import com.test.tvapp.ui.detail.DetailActivity
 class SearchsFragment: SearchFragment(), SearchFragment.SearchResultProvider {
 
     companion object {
-        private val REQUEST_SPEECH = 0x00000010
-        private val FINISH_ON_RECOGNIZER_CANCELED = true
+        private const val REQUEST_SPEECH = 0x00000010
+        private const val FINISH_ON_RECOGNIZER_CANCELED = true
     }
 
     private lateinit var listRowAdapter: ArrayObjectAdapter

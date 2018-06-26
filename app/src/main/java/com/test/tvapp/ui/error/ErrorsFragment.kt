@@ -9,7 +9,7 @@ import com.test.tvapp.R
 class ErrorsFragment: ErrorFragment() {
 
     companion object {
-        private val TRANSLUCENT = true
+        private const val TRANSLUCENT = true
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

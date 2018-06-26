@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentActivity
 class PlaybackActivity: FragmentActivity() {
 
     companion object {
-        val KEY_VIDEO = "VIDEO"
+        const val KEY_VIDEO = "VIDEO"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

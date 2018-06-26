@@ -20,7 +20,7 @@ import com.google.android.exoplayer2.util.Util
 class ExoPlayerFragment: VideoSupportFragment() {
 
     companion object {
-        val UPDATE_DELAY = 16
+        const val UPDATE_DELAY = 16
     }
 
     private lateinit var video: Video

@@ -8,7 +8,7 @@ import com.test.tvapp.R
 class ErrorActivity: Activity() {
 
     companion object {
-        private val TIMER_DELAY = 3000L
+        private const val TIMER_DELAY = 3000L
     }
 
     private lateinit var errorFragment: ErrorsFragment

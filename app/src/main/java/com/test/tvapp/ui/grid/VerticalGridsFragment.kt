@@ -15,7 +15,7 @@ import com.test.tvapp.ui.search.SearchActivity
 class VerticalGridsFragment: VerticalGridFragment() {
 
     companion object {
-        private val NUM_COLUMNS = 5
+        private const val NUM_COLUMNS = 5
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

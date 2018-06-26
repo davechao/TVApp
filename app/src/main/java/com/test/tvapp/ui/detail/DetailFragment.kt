@@ -36,10 +36,9 @@ import android.support.v17.leanback.widget.ListRowPresenter
 class DetailFragment: DetailsFragment() {
 
     companion object {
-        val NO_NOTIFICATION = -1
-        val ACTION_WATCH_TRAILER = 1
-        val ACTION_RENT = 2
-        val ACTION_BUY = 3
+        const val ACTION_WATCH_TRAILER = 1
+        const val ACTION_RENT = 2
+        const val ACTION_BUY = 3
     }
 
     private lateinit var backgroundManager: BackgroundManager
