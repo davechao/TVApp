@@ -31,6 +31,8 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+                <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
@@ -41,6 +43,7 @@
         <activity android:name=".ui.search.SearchActivity" />
         <activity android:name=".ui.exoplayer.ExoPlayerActivity" />
         <activity android:name=".ui.guidedstep.GuidedStepActivity" />
+        <activity android:name=".ui.launcher.LaunchersActivity" />
         <activity
             android:name=".ui.onboarding.OnboardingActivity"
             android:theme="@style/Theme.Leanback.Onboarding" />

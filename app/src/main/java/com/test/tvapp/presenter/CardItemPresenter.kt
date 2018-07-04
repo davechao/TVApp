@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.test.tvapp.R
+import com.test.tvapp.repository.model.AppInfo
 import com.test.tvapp.repository.model.Video
 import kotlin.properties.Delegates
 
@@ -42,22 +43,39 @@ class CardItemPresenter: Presenter() {
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, item: Any) {
-        val video = item as Video
-        val imageCardView = viewHolder.view as ImageCardView
 
-        if(!TextUtils.isEmpty(video.cardImageUrl)) {
-            imageCardView.titleText = video.title
-            imageCardView.contentText = video.studio
-            imageCardView.setMainImageDimensions(CARD_WIDTH, CARD_HEIGHT)
+        if(item is Video) {
+            val imageCardView = viewHolder.view as ImageCardView
+            if(!TextUtils.isEmpty(item.cardImageUrl)) {
+                imageCardView.titleText = item.title
+                imageCardView.contentText = item.studio
+                imageCardView.setMainImageDimensions(CARD_WIDTH, CARD_HEIGHT)
 
-            val options = RequestOptions()
-                    .centerCrop()
-                    .error(defaultCardImage)
+                val options = RequestOptions()
+                        .centerCrop()
+                        .error(defaultCardImage)
 
-            Glide.with(viewHolder.view.context)
-                    .load(video.cardImageUrl)
-                    .apply(options)
-                    .into(imageCardView.mainImageView)
+                Glide.with(viewHolder.view.context)
+                        .load(item.cardImageUrl)
+                        .apply(options)
+                        .into(imageCardView.mainImageView)
+            }
+        } else if(item is AppInfo) {
+            val imageCardView = viewHolder.view as ImageCardView
+            if(!TextUtils.isEmpty(item.packageName)) {
+                imageCardView.titleText = item.appName
+                imageCardView.contentText = item.packageName
+                imageCardView.setMainImageDimensions(CARD_WIDTH, CARD_HEIGHT)
+
+                val options = RequestOptions()
+                        .centerCrop()
+                        .error(defaultCardImage)
+
+                Glide.with(viewHolder.view.context)
+                        .load(item.icon)
+                        .apply(options)
+                        .into(imageCardView.mainImageView)
+            }
         }
     }
 

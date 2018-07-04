@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v17.leanback.widget.NonOverlappingLinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v17.leanback.widget.NonOverlappingLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <ImageView
         android:id="@+id/header_icon"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:contentDescription="@string/header_icon" />
+        android:contentDescription="@string/header_icon"
+        android:src="@mipmap/ic_launcher"/>
 
     <TextView
         android:id="@+id/header_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        tools:text="text"/>
 
 </android.support.v17.leanback.widget.NonOverlappingLinearLayout>

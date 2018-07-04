@@ -26,6 +26,7 @@ import com.test.tvapp.ui.error.ErrorActivity
 import com.test.tvapp.ui.exoplayer.ExoPlayerActivity
 import com.test.tvapp.ui.grid.VerticalGridActivity
 import com.test.tvapp.ui.guidedstep.GuidedStepActivity
+import com.test.tvapp.ui.launcher.LaunchersActivity
 import com.test.tvapp.ui.search.SearchActivity
 
 class MainFragment: BrowseFragment(){
@@ -102,6 +103,7 @@ class MainFragment: BrowseFragment(){
         prefRowAdapter.add(getString(R.string.guidedstep_fragment))
         prefRowAdapter.add(getString(R.string.personal_settings))
         prefRowAdapter.add(getString(R.string.exoplayer))
+        prefRowAdapter.add(getString(R.string.launcher))
         listRowAdapter.add(ListRow(prefHeader, prefRowAdapter))
 
         adapter = listRowAdapter
@@ -136,6 +138,11 @@ class MainFragment: BrowseFragment(){
 
                     getString(R.string.exoplayer) -> {
                         val intent = Intent(activity, ExoPlayerActivity::class.java)
+                        startActivity(intent)
+                    }
+
+                    getString(R.string.launcher) -> {
+                        val intent = Intent(activity, LaunchersActivity::class.java)
                         startActivity(intent)
                     }
 
