@@ -66,15 +66,7 @@ class CardItemPresenter: Presenter() {
                 imageCardView.titleText = item.appName
                 imageCardView.contentText = item.packageName
                 imageCardView.setMainImageDimensions(CARD_WIDTH, CARD_HEIGHT)
-
-                val options = RequestOptions()
-                        .centerCrop()
-                        .error(defaultCardImage)
-
-                Glide.with(viewHolder.view.context)
-                        .load(item.icon)
-                        .apply(options)
-                        .into(imageCardView.mainImageView)
+                imageCardView.mainImage = item.icon
             }
         }
     }
