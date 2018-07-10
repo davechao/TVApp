@@ -6,6 +6,7 @@ import android.support.v17.leanback.widget.Presenter
 import android.support.v4.content.ContextCompat
 import android.text.TextUtils
 import android.view.ViewGroup
+import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.test.tvapp.R
@@ -66,6 +67,7 @@ class CardItemPresenter: Presenter() {
                 imageCardView.titleText = item.appName
                 imageCardView.contentText = item.packageName
                 imageCardView.setMainImageDimensions(CARD_WIDTH, CARD_HEIGHT)
+                imageCardView.setMainImageScaleType(ImageView.ScaleType.FIT_CENTER)
                 imageCardView.mainImage = item.icon
             }
         }
