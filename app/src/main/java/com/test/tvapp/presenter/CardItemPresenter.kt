@@ -17,8 +17,8 @@ import kotlin.properties.Delegates
 class CardItemPresenter: Presenter() {
 
     companion object {
-        private val CARD_WIDTH = 313
-        private val CARD_HEIGHT = 176
+        private const val CARD_WIDTH = 313
+        private const val CARD_HEIGHT = 176
     }
 
     private var defaultCardImage: Drawable? = null

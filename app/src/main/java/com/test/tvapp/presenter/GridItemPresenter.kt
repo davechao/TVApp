@@ -11,8 +11,8 @@ import com.test.tvapp.R
 class GridItemPresenter: Presenter() {
 
     companion object {
-        private val GRID_ITEM_WIDTH = 200
-        private val GRID_ITEM_HEIGHT = 200
+        private const val GRID_ITEM_WIDTH = 200
+        private const val GRID_ITEM_HEIGHT = 200
     }
 
     override fun onCreateViewHolder(parent: ViewGroup): ViewHolder {
