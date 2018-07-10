@@ -48,13 +48,21 @@ class LauncherFragment: VerticalGridFragment() {
         val packageManager = activity.packageManager
         val apps = packageManager.queryIntentActivities(intent, 0)
         apps.forEach {
-            val appInfo = AppInfo(
-                    it.loadLabel(packageManager).toString(),
-                    it.activityInfo.packageName,
-                    it.activityInfo.loadIcon(packageManager))
-            cardRowAdapter.add(appInfo)
-        }
 
+            if(it.activityInfo.banner != 0) {
+                val appInfo = AppInfo(
+                        it.loadLabel(packageManager).toString(),
+                        it.activityInfo.packageName,
+                        it.activityInfo.loadBanner(packageManager))
+                cardRowAdapter.add(appInfo)
+            } else {
+                val appInfo = AppInfo(
+                        it.loadLabel(packageManager).toString(),
+                        it.activityInfo.packageName,
+                        it.activityInfo.loadIcon(packageManager))
+                cardRowAdapter.add(appInfo)
+            }
+        }
         adapter = cardRowAdapter
     }
 
