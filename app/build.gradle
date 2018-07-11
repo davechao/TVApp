@@ -32,6 +32,9 @@ dependencies {
     implementation "com.android.support:cardview-v7:$google_support_library_version"
     implementation "com.android.support:leanback-v17:$google_support_library_version"
 
+    // Constraint Layout
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+
     implementation 'com.github.bumptech.glide:glide:4.3.1'
     implementation 'com.google.android.exoplayer:exoplayer:2.6.1'
     implementation 'com.google.android.exoplayer:extension-leanback:2.6.1'
