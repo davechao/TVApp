@@ -56,6 +56,7 @@ class LauncherFragment: VerticalGridFragment() {
                         it.activityInfo.loadBanner(packageManager))
                 cardRowAdapter.add(appInfo)
             } else {
+                println(it.activityInfo.packageName)
                 val appInfo = AppInfo(
                         it.loadLabel(packageManager).toString(),
                         it.activityInfo.packageName,
@@ -73,7 +74,8 @@ class LauncherFragment: VerticalGridFragment() {
                 rowViewHolder: RowPresenter.ViewHolder?,
                 row: Row?) {
             if(item is AppInfo) {
-                val intent = activity.packageManager.getLaunchIntentForPackage(item.packageName)
+                val intent = activity.packageManager
+                        .getLeanbackLaunchIntentForPackage(item.packageName)
                 activity.startActivity(intent)
             }
         }
